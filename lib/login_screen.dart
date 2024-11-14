@@ -22,7 +22,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Login")),
+      appBar: AppBar(title: Text("Авторизація")),
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Form(
@@ -33,8 +33,8 @@ class LoginScreen extends StatelessWidget {
                 controller: emailController,
                 decoration: InputDecoration(labelText: 'Email'),
                 validator: (value) {
-                  if (value == null || value.isEmpty) return 'Please enter your email';
-                  if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) return 'Enter a valid email';
+                  if (value == null || value.isEmpty) return 'Будь ласка, введіть Email';
+                  if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) return 'Ви ввели Email не правильно';
                   return null;
                 },
               ),
@@ -42,26 +42,26 @@ class LoginScreen extends StatelessWidget {
               TextFormField(
                 controller: passwordController,
                 obscureText: true,
-                decoration: InputDecoration(labelText: 'Password'),
+                decoration: InputDecoration(labelText: 'Пароль'),
                 validator: (value) {
-                  if (value == null || value.isEmpty) return 'Please enter your password';
-                  if (value.length < 7) return 'Password must be at least 7 characters long';
+                  if (value == null || value.isEmpty) return 'Будь ласка, введіть пароль';
+                  if (value.length < 7) return 'Пароль не може бути меншим як 7 символів';
                   return null;
                 },
               ),
               SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () => _login(context),
-                child: Text("Login"),
+                child: Text("Авторизація"),
               ),
 
               TextButton(
                 onPressed: () => Navigator.pushNamed(context, '/register'),
-                child: Text("Sign up"),
+                child: Text("Реєстрація"),
               ),
               TextButton(
                 onPressed: () => Navigator.pushNamed(context, '/reset-password'),
-                child: Text("Reset Password"),
+                child: Text("Забули пароль?"),
               ),
             ],
           ),

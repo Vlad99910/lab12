@@ -20,7 +20,7 @@ class ResetPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Reset Password")),
+      appBar: AppBar(title: Text("Відновлення паролю")),
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Form(
@@ -31,19 +31,19 @@ class ResetPasswordScreen extends StatelessWidget {
                 controller: emailController,
                 decoration: InputDecoration(labelText: 'Email'),
                 validator: (value) {
-                  if (value == null || value.isEmpty) return 'Please enter your email';
-                  if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) return 'Enter a valid email';
+                  if (value == null || value.isEmpty) return 'Будь ласка, введіть Email';
+                  if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) return 'Ви ввели Email не правильно';
                   return null;
                 },
               ),
               SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () => _resetPassword(context),
-                child: Text("Reset Password"),
+                child: Text("Забули пароль?"),
               ),
               TextButton(
                 onPressed: () => Navigator.pop(context),
-                child: Text("Back to Login"),
+                child: Text("Авторизація"),
               ),
             ],
           ),

@@ -24,7 +24,7 @@ class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Sign Up")),
+      appBar: AppBar(title: Text("Реєстрація")),
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Form(
@@ -33,9 +33,9 @@ class RegisterScreen extends StatelessWidget {
             children: [
               TextFormField(
                 controller: nameController,
-                decoration: InputDecoration(labelText: 'Name'),
+                decoration: InputDecoration(labelText: 'Ім`я користувача'),
                 validator: (value) {
-                  if (value == null || value.isEmpty) return 'Please enter your name';
+                  if (value == null || value.isEmpty) return 'Введіть ваше ім`я';
                   return null;
                 },
               ),
@@ -44,8 +44,8 @@ class RegisterScreen extends StatelessWidget {
                 controller: emailController,
                 decoration: InputDecoration(labelText: 'Email'),
                 validator: (value) {
-                  if (value == null || value.isEmpty) return 'Please enter your email';
-                  if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) return 'Enter a valid email';
+                  if (value == null || value.isEmpty) return 'Будь ласка, введіть Email';
+                  if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) return 'Ви ввели Email не правильно';
                   return null;
                 },
               ),
@@ -53,21 +53,21 @@ class RegisterScreen extends StatelessWidget {
               TextFormField(
                 controller: passwordController,
                 obscureText: true,
-                decoration: InputDecoration(labelText: 'Password'),
+                decoration: InputDecoration(labelText: 'Пароль'),
                 validator: (value) {
-                  if (value == null || value.isEmpty) return 'Please enter your password';
-                  if (value.length < 7) return 'Password must be at least 7 characters long';
+                  if (value == null || value.isEmpty) return 'Будь ласка, введіть пароль';
+                  if (value.length < 7) return 'Пароль не може бути меншим як 7 символів';
                   return null;
                 },
               ),
               SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () => _register(context),
-                child: Text("Sign Up"),
+                child: Text("Реєстрація"),
               ),
               TextButton(
                 onPressed: () => Navigator.pop(context),
-                child: Text("Back to Login"),
+                child: Text("Авторизація"),
               ),
             ],
           ),
