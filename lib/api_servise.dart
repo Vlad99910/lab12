@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 
 class ApiService {
   final Dio _dio = Dio();
-  final String baseUrl = 'https://lab12.requestcatcher.com/test'; // замініть на ваше посилання
+  final String baseUrl = 'https://lab12.requestcatcher.com/test';
 
   Future<void> sendRequest(String endpoint, Map<String, dynamic> data) async {
     try {
